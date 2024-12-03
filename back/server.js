@@ -2,6 +2,7 @@ import express from "express";
 import userRoutes from "./routes/userRoutes.js"
 import cors from "cors"
 import { connectDB } from "./lib/dbsetup.js";
+import { chatController } from "./controller/chatController.js";
 
 const app = express(); 
 
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 
 // Login endpoint
 app.use("/user", userRoutes);
+app.post("/chat", chatController )
 
 
 app.use((err, req, res, next) => {
